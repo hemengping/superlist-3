@@ -31,3 +31,5 @@ class HomePageTest(TestCase):
         self.assertTemplateUsed(response,'home.html')
 
 
+
+
