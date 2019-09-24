@@ -11,6 +11,7 @@ class HomePageTest(TestCase):
     #     found = resolve('/home/')
     #     self.assertEqual(found.func,home_page)
 
+    #第一种创建请求的方式
     # def test_home_page_returns_correct_html(self):
     #     request = HttpRequest()
     #     response = home_page(request)
@@ -20,15 +21,20 @@ class HomePageTest(TestCase):
     #     self.assertIn('<title>To-Do lists</title>',html)
     #     self.assertTrue(html.endswith('d'))
 
+    # 第二种创建请求的方式
     # def test_home_page_returns_correct_html(self):
     #     response = self.client.get('/home/')
     #     html = response.content.decode('utf-8')
     #     self.assertTrue(html.startswith('<!DOCTYPE html>'))
     #     self.assertTemplateUsed(response,'home.html')
 
-    def test_uses_home_template(self):
-        response = self.client.get('/home/')
-        self.assertTemplateUsed(response,'home.html')
+    # def test_uses_home_template(self):
+    #     response = self.client.get('/home/')
+    #     self.assertTemplateUsed(response,'home.html')
+
+    def test_can_save_a_POST_request(self):
+        response = self.client.post('/home/',data={'item_text':'A new list item'})
+        self.assertIn('A new list item',response.content.decode())
 
 
 
