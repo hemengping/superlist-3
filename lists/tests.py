@@ -1,8 +1,9 @@
 from django.test import TestCase
 from lists.models import Item
+from django.test import LiveServerTestCase
 # Create your tests here.
 
-class HomePageTest(TestCase):
+class HomePageTest(LiveServerTestCase):
     # def test_root_url_resolves_to_home_page_view(self):
     #     found = resolve('/home/')
     #     self.assertEqual(found.func,home_page)
